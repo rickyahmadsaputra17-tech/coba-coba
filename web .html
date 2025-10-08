@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelas X TKJ 2 | SMK SHIFA' KALIPARE</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Website resmi Kelas X Teknik Komputer dan Jaringan 2 SMK SHIFA' KALIPARE">
+    <meta name="keywords" content="SMK SHIFA' KALIPARE, TKJ 2, kelas X, teknik komputer">
+    <meta name="author" content="Tim IT Kelas X TKJ 2">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('images/kelas-tkj2.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 150px 2rem 100px;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            background: #fbbf24;
+            color: #1e3a8a;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #f59e0b;
+            transform: translateY(-2px);
+        }
+
+        /* Section Umum */
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1e3a8a;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #fbbf24;
+            margin: 0.5rem auto;
+        }
+
+        /* Informasi Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .info-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-size: contain;
+        }
+
+        .info-card:nth-child(1) h3::before {
+            content: '📚';
+        }
+
+        .info-card:nth-child(2) h3::before {
+            content: '📅';
+        }
+
+        .info-card:nth-child(3) h3::before {
+            content: '📋';
+        }
+
+        /* Prestasi Section */
+        .prestasi-list {
+            list-style: none;
+        }
+
+        .prestasi-item {
+            background: white;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .prestasi-item:hover {
+            transform: translateX(5px);
+        }
+
+        .prestasi-item::before {
+            content: "🏆";
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        /* Struktur Section */
+        .struktur-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .anggota {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .anggota:hover {
+            transform: translateY(-5px);
+        }
+
+        .anggota img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            border: 4px solid #1e3a8a;
+        }
+
+        .anggota h3 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .anggota p {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        /* Kontak Section */
+        .kontak {
+            background: white;
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #1e3a8a;
+        }
+
+        .kontak-info {
+            margin-top: 2rem;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #fbbf24;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .info-grid, .struktur-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animasi */
+        .info-card, .prestasi-item, .anggota {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo-smk.png" alt="Logo SMK SHIFA' KALIPARE">
+                Kelas X TKJ 2
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#informasi">Informasi</a></li>
+                <li><a href="#prestasi">Prestasi</a></li>
+                <li><a href="#struktur">Struktur</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Selamat Datang di Kelas X TKJ 2!</h1>
+            <p>Kami adalah siswa-siswi Teknik Komputer dan Jaringan yang siap menghadapi tantangan teknologi masa depan. Bersama kita belajar, berkembang, dan meraih prestasi.</p>
+            <a href="#informasi" class="btn">Jelajahi Lebih Lanjut</a>
+        </section>
+
+        <section id="informasi" class="info-grid">
+            <h2>Informasi Kelas</h2>
+            <div class="info-card">
+                <h3>Tentang Kelas Kami</h3>
+                <p>Kelas X TKJ 2 terdiri dari 36 siswa yang bersemangat dalam bidang teknologi. Kami belajar tentang instalasi jaringan, konfigurasi server, pemrograman web, dan keamanan siber.</p>
+            </div>
+            <div class="info-card">
+                <h3>Jadwal Pelajaran</h3>
+                <p>Senin-Jumat: 07:30 - 14:00 WIB<br>
+                Praktikum: Selasa & Kamis (14:30 - 16:00)<br>
+                Ekstrakurikuler: Sabtu (08:00 - 11:00)</p>
+            </div>
+            <div class="info-card">
+                <h3>Tata Tertib Kelas</h3>
+                <p>1. Datang tepat waktu<br>
+                2. Menggunakan seragam lengkap<br>
+                3. Menjaga kebersihan kelas<br>
+                4. Bertanggung jawab atas peralatan praktikum</p>
+            </div>
+        </section>
+
+        <section id="prestasi">
+            <h2>Prestasi Kami</h2>
+            <ul class="prestasi-list">
+                <li class="prestasi-item">Juara 1 LKS Jaringan Komputer Tingkat Kabupaten Malang (2023)</li>
+                <li class="prestasi-item">Juara 2 Olimpiade Teknologi Informasi Tingkat Provinsi Jawa Timur (2023)</li>
+                <li class="prestasi-item">Best Project dalam Pameran Teknologi SMK Se-Malang Raya (2022)</li>
+            </ul>
+        </section>
+
+        <section id="struktur">
+            <h2>Pengurus Kelas</h2>
+            <div class="struktur-grid">
+                <div class="anggota">
+                    <img src="images/ketua-kelas.jpg" alt="Foto Ketua Kelas">
+                    <h3>Kurniawan</h3>
+                    <p>Ketua Kelas</p>
+                </div>
+                <div class="anggota">
+                    <img src="images/wakil-ketua.jpg" alt="Foto Wakil Ketua Kelas">
+                    <h3>Muhammad Ardan</h3>
+                    <p>Wakil Ketua</p>
+                </div>
+                <div class="anggota">
+                    <img src="images/sekretaris.jpg" alt="Foto Sekretaris Kelas">
+                    <h3>Anesa</h3>
+                    <p>Sekretaris</p>
+                </div>
+                <div class="anggota">
+                    <img src="images/bendahara.jpg" alt="Foto Bendahara Kelas">
+                    <h3>Elvareta</h3>
+                    <p>Bendahara</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="kontak">
+            <h2>Hubungi Kami</h2>
+            <form id="kontakForm">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+            <div class="kontak-info">
+                <p>SMK SHIFA' KALIPARE</p>
+                <p>Jl. KH. Ahmad Dahlan No. 15, Kalipare, Malang</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/tkj2smkshifa" title="Instagram">📷</a>
+                    <a href="https://youtube.com/@tkj2smkshifa" title="YouTube">📺</a>
+                    <a href="https://wa.me/6285731740649" title="WhatsApp">💬</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Kelas X TKJ 2 - SMK SHIFA' KALIPARE</p>
+        <p>Dikembangkan oleh Tim IT Kelas X TKJ 2</p>
+    </footer>
+
+    <script>
+        // Handle form submit
+        document.getElementById('kontakForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah kami terima dan akan segera kami balas.');
+            this.reset();
+        });
+
+        // Smooth scroll untuk nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animasi fade-in
+        window.addEventListener('load', () => {
+            const elements = document.querySelectorAll('.info-card, .prestasi-item, .anggota');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
